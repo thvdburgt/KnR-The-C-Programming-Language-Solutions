@@ -9,8 +9,8 @@
  * Exercise 2-2, page 42
  *
  * Write a loop equivalent to the for loop above without using && or ||.
+ * 
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
- *
  * The original loop:
  * for (i=0;i<lim-1 && (c=getchar()) != '\n' && c != EOF; i++)
  *     s[i] = c;

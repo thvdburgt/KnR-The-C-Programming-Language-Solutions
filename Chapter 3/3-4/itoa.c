@@ -12,8 +12,8 @@
  * not handle the largest negative number, that is, the value of n equal
  * to -(2^(wordsize - 1)). Explain why not. Modify it to print that
  * value correctly regardless of the machine on which it runs.
- * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  *
+ * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  * It does not handle the largest negative number because it does not
  * have a positive equivalent; -n where n is the largest negative number
  * gives n; because n is still negative n%10 gives negative values
