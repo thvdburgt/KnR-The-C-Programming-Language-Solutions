@@ -18,11 +18,11 @@
 /* strcat:  concatenate t to end of s; s must be big enough */
 void strcat(char *s, const char *t)
 {
-    while (*s)       /* find end of s */
+    while (*s)      /* find end of s */
         s++;
-    do               /* copy t */
-        *s = *t++;
-    while (*s++);
+    while (*t)      /* copy t */
+        *s++ = *t++;
+    *s = '\0';
 }
 
 int main(void)
