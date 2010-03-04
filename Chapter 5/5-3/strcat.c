@@ -1,7 +1,7 @@
 /*
  * Filename:    strcat.c
  * Author:      Thomas van der Burgt <thomas@thvdburgt.nl>
- * Date:        03-MAR-2010
+ * Date:        04-MAR-2010
  *
  * The C Programming Language, second edition,
  * by Brian Kernighan and Dennis Ritchie
