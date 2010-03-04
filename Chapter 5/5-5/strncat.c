@@ -1,5 +1,5 @@
 /*
- * Filename:    strncpy.c
+ * Filename:    strncat.c
  * Author:      Thomas van der Burgt <thomas@thvdburgt.nl>
  * Date:        04-MAR-2010
  *
