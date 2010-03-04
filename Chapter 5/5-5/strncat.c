@@ -14,10 +14,13 @@
  * t to s. Full descriptions are in Appendix B.
  */
 
-/* strncpy:  copy at most n characters of t to s */
-void strncpy(char *s, const char *t, int n)
+/* strcat:  concatenate at most n characters of t to the end of s; s
+            must be big enough */
+void strcat(char *s, const char *t, int n)
 {
-    while (*t && n-- > 0)
+    while (*s)              /* find end of s */
+        s++;
+    while (*t && n-- > 0)   /* copy at most n characters of t */
         *s++ = *t++;
     *s = '\0';
 }

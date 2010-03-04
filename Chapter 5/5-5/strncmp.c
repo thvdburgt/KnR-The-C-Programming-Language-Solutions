@@ -14,10 +14,12 @@
  * t to s. Full descriptions are in Appendix B.
  */
 
-/* strncpy:  copy at most n characters of t to s */
-void strncpy(char *s, const char *t, int n)
+/* strncmp:  compare at most n characters of s and t, return <0 if s<t,
+             0 if s==t, >0 if s>t */
+int strncmp(char *s, const char *t, int n)
 {
-    while (*t && n-- > 0)
-        *s++ = *t++;
-    *s = '\0';
+    for (; *s == *t && n-- > 0; s++, t++)
+        if (*s == '\0' || n == 0)
+            return 0;
+    return *s - *t;
 }
