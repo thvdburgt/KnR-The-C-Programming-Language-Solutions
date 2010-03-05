@@ -43,8 +43,8 @@ void itoa(int n, char s[], int w)
     sign = n;
     i = 0;
     do {       /* generate digits in reverse order */
-        s[i++] = abs(n % 10) + '0';   /* get next digit */
-    } while (n /= 10);               /* delete it */
+        s[i++] = abs(n % 10) + '0';     /* get next digit */
+    } while (n /= 10);                  /* delete it */
 
     if (sign < 0)
         s[i++] = '-';
