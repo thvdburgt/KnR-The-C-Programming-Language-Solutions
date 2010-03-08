@@ -1,31 +1,24 @@
-/***********************************************************************
-
-    filename:   polishcalc.c
- 
-    author:     Thomas van der Burgt
-    date:       2010-02-25
-
-    description:
-
-        The C Programming Language, second edition, 
-        by Brian Kernighan and Dennis Ritchie
-
-        Exercise 4-4, page 79
-
-        Add commands to print the top element of the stack without
-        popping, to duplicate it, and to swap the top two elements. Add
-        a command to clear the stack. 
-
-    comments:
-
-        I added the following functions:
-            void show_top(void);
-            void duplicate_top(void);
-            void swap_top(void);
-            void clear(void);
-
-
-***********************************************************************/
+/*
+ * Filename:    polishcalc.c
+ * Author:      Thomas van der Burgt <thomas@thvdburgt.nl>
+ * Date:        08-MAR-2010
+ *
+ * The C Programming Language, second edition,
+ * by Brian Kernighan and Dennis Ritchie
+ *
+ * Exercise 4-3, page 79
+ *
+ * Add commands to print the top element of the stack without popping,
+ * to duplicate it, and to swap the top two elements. Add a command to
+ * clear the stack.
+ *
+ * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ * I added the following functions:
+ *  - void show_top(void);
+ *  - void duplicate_top(void);
+ *  - void swap_top(void);
+ *  - void clear(void);
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -70,6 +63,13 @@ int main(void)
             else
                 printf("error: zero devisor\n");
             break;
+        case '%':
+            op2 = pop();
+            if (op2 != 0.0)
+                push(fmod(pop(), op2));
+            else
+                printf("error: zero devisor\n");
+            break;
         case '\n':
             printf("\t%.8g\n", pop());
             break;
@@ -80,7 +80,6 @@ int main(void)
     }
     return EXIT_SUCCESS;
 }
-
 
 #define MAXVAL  100  /* maximum depth of val stack*/
 
@@ -95,7 +94,6 @@ void push(double f)
     else
         printf("error: stack full, can't push %g\n", f);
 }
-
 
 /* pop:  pop and return top value from stack */
 double pop(void)
@@ -150,19 +148,16 @@ int getop(char s[])
 {
     int i, c;
 
-    while ((s[0] = c = getch()) == ' ' || c == '\t')
-        ;
+    while ((s[0] = c = getch()) == ' ' || c == '\t');
     s[1] = '\0';
-    if (!isdigit(c) && c != '.')
-        return c;     /* not a number */
+    if (!isdigit(c) && c != '.' && c != '-')
+        return c;                       /* not a number */
     i = 0;
-    if (isdigit(c))  /* collect integer part */
-        while (isdigit(s[++i] = c = getch()))
-            ;
-    if (c == '.')     /* collect fraction part */
-        while (isdigit(s[++i] = c = getch()))
-            ;
-    s[i] = '\0';
+    if (isdigit(c) || c == '-')         /* collect integer part */
+        while (isdigit(s[++i] = c = getch()));
+    if (c == '.')                       /* collect fraction part */
+        while (isdigit(s[++i] = c = getch()));
+    s[i] = '\0';                        /* terminate string */
     if (c != EOF)
         ungetch(c);
     return NUMBER;
@@ -173,7 +168,7 @@ int getop(char s[])
 char buf[BUFSIZE];  /* buffer for ungetch */
 int  bufp = 0;      /* next free position in buf */
 
-int getch(void) /* get a (possibly pushed back) character */
+int getch(void)     /* get a (possibly pushed back) character */
 {
     return (bufp > 0) ? buf[--bufp] : getchar();
 }
@@ -185,4 +180,3 @@ void ungetch(int c) /* push character back on input */
     else
         buf[bufp++] = c;
 }
-
