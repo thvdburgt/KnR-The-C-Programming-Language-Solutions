@@ -6,7 +6,7 @@
  * The C Programming Language, second edition,
  * by Brian Kernighan and Dennis Ritchie
  *
- * Exercise 4-3, page 79
+ * Exercise 4-4, page 79
  *
  * Add commands to print the top element of the stack without popping,
  * to duplicate it, and to swap the top two elements. Add a command to
