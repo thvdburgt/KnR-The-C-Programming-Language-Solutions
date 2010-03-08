@@ -1,14 +1,21 @@
 /*
- * Answer to Exercise 4-3, page 77
+ * Filename:    polishcalc.c
+ * Author:      Thomas van der Burgt <thomas@thvdburgt.nl>
+ * Date:        08-MAR-2010
+ *
+ * The C Programming Language, second edition,
+ * by Brian Kernighan and Dennis Ritchie
+ *
+ * Exercise 4-3, page 79
  *
  * Given the basic framework, it's straightforward to extend the
  * calculator. Add the modulus (%) operator and provisions for
- * negative numbers. 
+ * negative numbers.
  */
 
 #include <stdio.h>
-#include <stdlib.h>   /* for atof() */
-#include <math.h>     /* for fmod() */
+#include <stdlib.h>   /* EXIT_SUCCESS, atof() */
+#include <math.h>     /* fmod() */
 
 #define MAXOP   100   /* max size of operand or operator */
 #define NUMBER  '0'   /* signal that a number was found */
@@ -61,7 +68,7 @@ int main(void)
             break;
         }
     }
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 
@@ -101,19 +108,16 @@ int getop(char s[])
 {
     int i, c;
 
-    while ((s[0] = c = getch()) == ' ' || c == '\t')
-        ;
+    while ((s[0] = c = getch()) == ' ' || c == '\t');
     s[1] = '\0';
     if (!isdigit(c) && c != '.' && c != '-')
-        return c;     /* not a number */
+        return c;                       /* not a number */
     i = 0;
-    if (isdigit(c) || c == '-')  /* collect integer part */
-        while (isdigit(s[++i] = c = getch()))
-            ;
-    if (c == '.')     /* collect fraction part */
-        while (isdigit(s[++i] = c = getch()))
-            ;
-    s[i] = '\0';
+    if (isdigit(c) || c == '-')         /* collect integer part */
+        while (isdigit(s[++i] = c = getch()));
+    if (c == '.')                       /* collect fraction part */
+        while (isdigit(s[++i] = c = getch()));
+    s[i] = '\0';                        /* terminate string */
     if (c != EOF)
         ungetch(c);
     return NUMBER;
@@ -124,7 +128,7 @@ int getop(char s[])
 char buf[BUFSIZE];  /* buffer for ungetch */
 int  bufp = 0;      /* next free position in buf */
 
-int getch(void) /* get a (possibly pushed back) character */
+int getch(void)     /* get a (possibly pushed back) character */
 {
     return (bufp > 0) ? buf[--bufp] : getchar();
 }
