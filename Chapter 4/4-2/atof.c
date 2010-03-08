@@ -47,4 +47,3 @@ float atof(char s[])
     }
     return val;
 }
-
