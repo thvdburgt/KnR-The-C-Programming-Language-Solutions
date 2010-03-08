@@ -71,7 +71,6 @@ int main(void)
     return EXIT_SUCCESS;
 }
 
-
 #define MAXVAL  100  /* maximum depth of val stack*/
 
 int sp = 0;          /* next free stack position */
@@ -85,7 +84,6 @@ void push(double f)
     else
         printf("error: stack full, can't push %g\n", f);
 }
-
 
 /* pop:  pop and return top value from stack */
 double pop(void)
