@@ -81,7 +81,7 @@ void dofunc(char s[])
         push(cos(pop()));
     else if (strcmp(s, "exp") == 0)     /* exponential function */
         push(exp(pop()));
-    else if (strcmp(s, "pow") == 0) {   /* x to the power y */
+    else if (strcmp(s, "pow") == 0) {   /* x to the power of y */
         op2 = pop();
         op1 = pop();
         if (op1 == 0 && op2 <= 0)
