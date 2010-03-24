@@ -1,3 +1,18 @@
+/*
+ * Filename:    cat.c
+ * Author:      Thomas van der Burgt <thomas@thvdburgt.nl>
+ * Date:        24-MAR-2010
+ *
+ * The C Programming Language, second edition,
+ * by Brian Kernighan and Dennis Ritchie
+ *
+ * Exercise 8-1, page 174
+ *
+ * Rewrite the program cat from Chapter 7 using read, write, open and
+ * close instead of their standard library equivalents. Perform
+ * experiments to determine the relative speeds of the two versions.
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>  /* File Control Operations */
