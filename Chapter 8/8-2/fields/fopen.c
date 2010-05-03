@@ -55,6 +55,6 @@ int main(void)
     FILE *fp;
     char mode;
     mode = 'w';
-    fp = fopen("blaat", &mode);
+    fp = fopen("foo", &mode);
     return 0;
 }

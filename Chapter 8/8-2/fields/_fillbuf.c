@@ -1,3 +1,17 @@
+/*
+ * Filename:    _fillbuf.c
+ * Author:      Thomas van der Burgt <thomas@thvdburgt.nl>
+ * Date:        03-MAY-2010
+ *
+ * The C Programming Language, second edition,
+ * by Brian Kernighan and Dennis Ritchie
+ *
+ * Exercise 8-2, page 178
+ *
+ * Rewrite fopen and _fillbuf with fields instead of explicit bit operations.
+ * Compare code size and execution speed.
+ */
+
 #include "syscalls.h"
 #include <stdlib.h>
 
