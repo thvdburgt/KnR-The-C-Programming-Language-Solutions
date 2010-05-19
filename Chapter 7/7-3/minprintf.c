@@ -15,15 +15,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void minprintf(char *fmt, ...);
-
-int main(void)
-{
-    printf("%%f = %f\n", 3.17);
-    minprintf("%%e = %e\n", 3.17);
-    return EXIT_SUCCESS;
-}
-
 /* minprintf:  minimal printf with variable argument list */
 void minprintf(char *fmt, ...)
 {
