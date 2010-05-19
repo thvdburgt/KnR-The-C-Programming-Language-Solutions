@@ -8,7 +8,7 @@
  *
  * Exercise 7-3, page 156
  *
- * Revise minprintf to handle more of the other facilities of printf. 
+ * Revise minprintf to handle more of the other facilities of printf.
  */
 
 #include <stdarg.h>
@@ -87,5 +87,3 @@ void minprintf(char *fmt, ...)
     }
     va_end(ap);
 }
-
-
