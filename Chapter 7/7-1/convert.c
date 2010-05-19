@@ -1,5 +1,5 @@
 /*
- * Filename:    uplow.c
+ * Filename:    convert.c
  * Author:      Thomas van der Burgt <thomas@thvdburgt.nl>
  * Date:        18-MAR-2010
  *
@@ -44,7 +44,7 @@ int main(int argc, char **argv)
 }
 
 /* splitpath:  returns file-name of without path */
-char * splitpath(const char *file)
+char *splitpath(const char *file)
 {
     int n, i;
     for (i = n = 0 ; file[i] != '\0'; ++i)
